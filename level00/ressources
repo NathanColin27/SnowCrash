@@ -1,0 +1,13 @@
+In the video(https://elearning.intra.42.fr/notions/127/subnotions/465/videos/404) introducing the project, we can see an hint saying 
+
+"FIND this first file who can only run as flag00"
+
+Running the command "find -user flag00 2>/dev/null" give us two files.
+
+/usr/sbin/john
+/rofs/usr/sbin/john
+
+Both contain the same string : "cdiiddwpgswtgt" . But this isn't the password we need to access the next level. Since the string doesn't make much sense, it is probably encrypted. Using https://www.dcode.fr/cipher-identifier we find that a caeser/rot cypher was used. 
+
+The decrypted string is "nottoohardhere"
+
