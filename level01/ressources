@@ -1,0 +1,9 @@
+Looking at the content of /etc/passwd we can see that the password of flag01 is stored in it, still encrypted. We can use the utillity John the Ripper to crack it.
+
+john --show /etc/passwd
+
+Ressources :
+
+https://serverfault.com/questions/116281/in-linux-debian-did-the-passwords-etc-passwd-ever-been-stored-as-plain-text
+
+https://www.openwall.com/john/doc/EXAMPLES.shtml
