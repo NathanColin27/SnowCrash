@@ -1,0 +1,35 @@
+Our home folder contains a file called "level02.pcap"
+
+A pcap file is packet capture file, containing packet data of some network trafic.
+
+To analyse it I used wireshark. Looking at the raw data, it isn't obvious what's going on.
+Using a special utility ('Follow TCP Stream'), the data makes more sense. It looks like a login attempt.
+
+-----------
+Linux 2.6.38-8-generic-pae (::ffff:10.1.1.2) (pts/10)
+
+..wwwbugs login: l.le.ev.ve.el.lX.X
+..
+Password: ft_wandr...NDRel.L0L
+.
+..
+Login incorrect
+wwwbugs login: 
+-----------
+
+At this point I tried to log as the next user with the password ft_wandr...NDRel.L0L
+Doesn't work.
+
+After looking at the output under different format, I noticed that multiple dot ('.') characters didn't have the same hex value. Probably non-printable characters that wireshark interpreted. the hex value of the dots in the password we found correspond to the DEL ASCII character.. meaning that the password was corrected during the typing. The real pass looks like this 
+
+ft_waNDReL0L
+
+This worked and let me access to flag02 user
+
+https://www.solarwinds.com/resources/it-glossary/pcap
+
+https://www.instructables.com/How-to-Find-Passwords-Using-Wireshark/
+
+https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowStreamSection.html
+
+
